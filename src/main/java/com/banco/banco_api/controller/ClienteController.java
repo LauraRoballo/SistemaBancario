@@ -1,6 +1,7 @@
 package com.banco.banco_api.controller;
 
 import com.banco.banco_api.repository.ClienteRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -19,7 +20,8 @@ public class ClienteController {
     }
 
     @PostMapping
-    public Cliente guardarCliente(@RequestBody Cliente nuevoCliente){
+    public Cliente guardarCliente(@Valid @RequestBody Cliente nuevoCliente){
         return repository.save(nuevoCliente);
     }
+
 }
