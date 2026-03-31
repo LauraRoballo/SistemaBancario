@@ -1,32 +1,75 @@
-# Sistema bancario 🏦
+# 🏦 Sistema bancario 
 
-## Descripción del proyecto 
+Sistema de gestión bancaria desarrollado como una **API REST** robusta. Permite la administración de clientes, apertura de cuentas de ahorro y la ejecución segura de transacciones financieras con trazabilidad completa de movimientos.
 
-Sistema bancario desarrollado como API REST encargado del registro de clientes y creación de cuentas de ahorro, permitiendo realizar transferencias, recargas de cuenta y consulta de movimientos. La aplicación implementa lógica de negocio bancaria, arquitectura en capas y conexión a base de datos relacional. El sistema permite registrar clientes, crear cuentas, realizar operaciones y consultar movimientos mediante servicios REST.
+---
 
-## Tecnologias 
+## 🚀 Características principales
+
+* **Gestión de Clientes:** Registro, actualización y consulta de perfiles de usuario.
+* **Cuentas de Ahorro:** Creación de cuentas vinculadas a clientes con manejo de saldos en tiempo real.
+* **Operaciones Bancarias:** * Transferencias entre cuentas (con validación de fondos).
+    * Recargas y depósitos.
+* **Historial de Movimientos:** Consulta detallada de transacciones por cuenta (débitos/créditos).
+* **Integridad de Datos:** Implementación de transaccionalidad para asegurar que las operaciones financieras sean atómicas (o se completan ambas partes o no se hace nada).
+
+---
+
+## 🏗️ Arquitectura del Sistema
+
+El proyecto sigue un patrón de **Arquitectura en Capas**, garantizando una clara separación de responsabilidades:
+
+1.  **API Layer (Controllers):** Gestiona las peticiones HTTP y define los endpoints REST.
+2.  **Service Layer (Lógica de Negocio):** Donde reside la "inteligencia" del banco (validaciones de saldo, reglas de negocio).
+3.  **Data Access Layer (Repository):** Comunicación con la base de datos mediante Spring Data JPA.
+4.  **Model Layer (Entities/DTOs):** Representación de los datos y transferencia de información entre capas.
+   
+---
+
+## 🛠️ Tecnologías Utilizadas
+
 * Java
-
 * Spring Boot
-
 * Base de datos SQL relacional (MySQL)
-
 * Postman (pruebas de endpoints)
-
 * JSON (intercambio de datos)
 
-## Arquitectura
+---
 
-El sistema implementa arquitectura en capas separando Controller, Service y Repository, permitiendo mantener una organización clara del código y separación de responsabilidades.
+## 📑 API Endpoints
 
-## Entidades
+La API sigue las convenciones **RESTful**. A continuación se detallan los recursos principales:
 
-El sistema maneja las entidades Cliente, Cuenta y Movimiento, relacionadas entre sí mediante claves foráneas.
+| Método | Endpoint | Descripción |
+| :--- | :--- | :--- |
+| `POST` | `/api/clientes` | Registra un nuevo cliente en el sistema. |
+| `POST` | `/api/cuentas` | Crea una nueva cuenta de ahorro vinculada a un cliente. |
+| `POST` | `/api/operaciones/transferir` | Ejecuta una transferencia entre cuentas (Lógica transaccional). |
+| `GET` | `/api/cuentas/{id}/movimientos` | Consulta el historial de depósitos y retiros de una cuenta. |
 
-## Endpoints
+---
+## 📊 Modelo de Datos (ER)
 
-La API expone endpoints REST para la gestión de clientes, cuentas y operaciones bancarias.
+El sistema se basa en un modelo relacional diseñado para garantizar la integridad y consistencia de la información financiera:
 
-## Diagramas
+* **Cliente (1) ── (N) Cuenta:** Un cliente puede poseer múltiples cuentas (Ahorros, Corriente, etc.).
+* **Cuenta (1) ── (N) Movimiento:** Cada cuenta mantiene un historial detallado de sus transacciones.
 
- [Diagramas](./docs/diseno.md)
+### 🗺️ Diagrama de Arquitectura
+```text
+[ Postman ] 
+       │
+       ▼
+[ Controller ] 
+       │
+       ▼
+[ Service ] 
+       │
+       ▼
+[ Repository ] 
+       │
+       ▼
+[ MySQL Database ]
+
+
+
