@@ -9,7 +9,7 @@ Sistema de gestión bancaria desarrollado como una **API REST** robusta. Permite
 * **Gestión de Clientes:** Registro y consulta de perfiles de usuario.
 * **Cuentas de Ahorro:** Creación de cuentas vinculadas a clientes con manejo de saldos en tiempo real.
 * **Operaciones Bancarias:** * Transferencias entre cuentas (con validación de fondos).
-    * Recargas y depósitos.
+    * Recargas y transferecnias.
 * **Historial de Movimientos:** Consulta detallada de transacciones por cuenta (débitos/créditos).
 * **Integridad de Datos:** Implementación de transaccionalidad para asegurar que las operaciones financieras sean atómicas (o se completan ambas partes o no se hace nada).
 
@@ -45,7 +45,7 @@ La API sigue las convenciones **RESTful**. A continuación se detallan los recur
 | `POST` | `/api/clientes` | Registra un nuevo cliente en el sistema. |
 | `POST` | `/api/cuentas` | Crea una nueva cuenta de ahorro vinculada a un cliente. |
 | `POST` | `/api/cuentas/transferir` | Ejecuta una transferencia entre cuentas (Lógica transaccional). |
-| `GET` | `/api/cuentas/{numeroCuenta}/historial` | Consulta el historial de depósitos y trasacciones de una cuenta. |
+| `GET` | `/api/cuentas/{numeroCuenta}/historial` | Consulta el historial de recargas y trasacciones de una cuenta. |
 
 ---
 ## 📊 Modelo de Datos (ER)
