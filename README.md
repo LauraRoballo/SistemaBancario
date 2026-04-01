@@ -6,7 +6,7 @@ Sistema de gestión bancaria desarrollado como una **API REST** robusta. Permite
 
 ## 🚀 Características principales
 
-* **Gestión de Clientes:** Registro, actualización y consulta de perfiles de usuario.
+* **Gestión de Clientes:** Registro y consulta de perfiles de usuario.
 * **Cuentas de Ahorro:** Creación de cuentas vinculadas a clientes con manejo de saldos en tiempo real.
 * **Operaciones Bancarias:** * Transferencias entre cuentas (con validación de fondos).
     * Recargas y depósitos.
