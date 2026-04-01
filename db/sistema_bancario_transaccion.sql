@@ -16,30 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `clientes`
+-- Table structure for table `transaccion`
 --
 
-DROP TABLE IF EXISTS `clientes`;
+DROP TABLE IF EXISTS `transaccion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `clientes` (
+CREATE TABLE `transaccion` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `documento` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `nombre` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `documento` (`documento`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `fecha` datetime(6) DEFAULT NULL,
+  `monto` decimal(38,2) DEFAULT NULL,
+  `numero_cuenta_destino` varchar(255) DEFAULT NULL,
+  `numero_cuenta_origen` varchar(255) DEFAULT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `clientes`
+-- Dumping data for table `transaccion`
 --
 
-LOCK TABLES `clientes` WRITE;
-/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (1,'1019763154','lauradaniela022006@gmail.com','Laura Roballo'),(2,'151789256265','carlos.salamancas@gmail.com','Carlos Salamanca'),(3,'78924565','melanygarcia485@gmail.com','Melany Garcia'),(4,'15468792135','juan.duare@hotmail.com','Juan Duarte');
-/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
+LOCK TABLES `transaccion` WRITE;
+/*!40000 ALTER TABLE `transaccion` DISABLE KEYS */;
+INSERT INTO `transaccion` VALUES (1,'2026-04-01 07:17:55.698172',250000.00,'9829342902','8118962342','TRANSFERENCIA'),(2,'2026-04-01 07:24:35.359450',150000.00,'6858527876',NULL,'RECARGA'),(3,'2026-04-01 07:26:09.110476',50000.00,'9829342902',NULL,'RECARGA'),(4,'2026-04-01 07:41:27.250522',100000.00,'3927278716',NULL,'RECARGA'),(5,'2026-04-01 07:43:32.606897',80000.00,'3927278716','9829342902','TRANSFERENCIA');
+/*!40000 ALTER TABLE `transaccion` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
