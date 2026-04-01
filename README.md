@@ -44,8 +44,8 @@ La API sigue las convenciones **RESTful**. A continuación se detallan los recur
 | :--- | :--- | :--- |
 | `POST` | `/api/clientes` | Registra un nuevo cliente en el sistema. |
 | `POST` | `/api/cuentas` | Crea una nueva cuenta de ahorro vinculada a un cliente. |
-| `POST` | `/api/operaciones/transferir` | Ejecuta una transferencia entre cuentas (Lógica transaccional). |
-| `GET` | `/api/cuentas/{id}/movimientos` | Consulta el historial de depósitos y retiros de una cuenta. |
+| `POST` | `/api/cuentas/transferir` | Ejecuta una transferencia entre cuentas (Lógica transaccional). |
+| `GET` | `/api/cuentas/{numeroCuenta}/historial` | Consulta el historial de depósitos y retiros de una cuenta. |
 
 ---
 ## 📊 Modelo de Datos (ER)
